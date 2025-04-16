@@ -95,3 +95,14 @@
         -barlevel-overdrive-color: #c01c28;
         -barlevel-overdrive-separator-width: 1px;
         -slider-handle-radius: 0.5em; }
+
+
+
+.quick-toggle-menu, .message, .events-button, .world-clocks-button, .weather-button {
+    color: rgb(255, 255, 255);
+    background-color: rgba(137, 137, 137, 0.5); }
+    .quick-toggle-menu:hover, .message:hover, .events-button:hover, .world-clocks-button:hover, .weather-button:hover {
+    color: #ffffff;
+    background-color: st-lighten(#6e6e6e, 4%); }
+
+        
