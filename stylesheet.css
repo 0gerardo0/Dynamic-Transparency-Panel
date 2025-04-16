@@ -97,12 +97,30 @@
         -slider-handle-radius: 0.5em; }
 
 
-
+/* Notifications and events */
 .quick-toggle-menu, .message, .events-button, .world-clocks-button, .weather-button {
     color: rgb(255, 255, 255);
-    background-color: rgba(137, 137, 137, 0.5); }
+    background-color: rgba(94, 94, 94, 0.6); }
     .quick-toggle-menu:hover, .message:hover, .events-button:hover, .world-clocks-button:hover, .weather-button:hover {
     color: #ffffff;
     background-color: st-lighten(#6e6e6e, 4%); }
 
-        
+
+
+
+  /* Popovers/Menus */
+.popup-menu-boxpointer, .candidate-popup-boxpointer {
+    -arrow-rise: 10px; }
+    .popup-menu {
+        min-width: 15em;
+        color: #ffffff; }
+    .popup-menu.panel-menu {
+        margin-bottom: 1.75em; }
+    .popup-menu-content, .candidate-popup-content {
+        padding: 10px;
+        background-color: rgba(69, 69, 69, 0.6);
+        border-radius: 20px;
+        border: 1px solid transparent;
+        box-shadow: unset 0px 0px 18px 2px rgba(150, 150, 150, 0.4) }
+
+  
