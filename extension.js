@@ -24,7 +24,6 @@ export default class blurquicksettingsExtension extends Extension {
             quickSettings.menu.actor.add_style_class_name('translucent-qs');
         }
     }
-
     _removeCustomStyles() {
         Main.panel.remove_style_class_name('translucent-panel');
 
