@@ -1,18 +1,18 @@
-/*Color de fondo de los quick settings*/
+
 .quick-settings {
-    background-color: rgba(69, 69, 69, 0.6); /*color de fondo*/
-    backdrop-filter: blur(10px);/*Pues xd no hacer nada*/
+    background-color: rgba(69, 69, 69, 0.6); 
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px; /*Redondes de la forma del menu*/
-    box-shadow: 0px 0px 18px 2px rgba(150, 150, 150, 0.4); /*Color de la sombre de fondo*/
-    transition: background-color 0.3s ease; /*Deberia de hacer algo*/
+    border-radius: 20px; 
+    box-shadow: 0px 0px 18px 2px rgba(150, 150, 150, 0.4);
+    transition: background-color 0.3s ease; 
 }
-/*Color de fondo, tamaño y separecion de los botoner y toggles*/
+
     .quick-settings .icon-button, .quick-settings .login-dialog-button.cancel-button, .quick-settings .login-dialog-button.switch-user-button, .quick-settings .login-dialog-button.login-dialog-session-list-button, .quick-settings .calendar .calendar-month-header .pager-button, .calendar .calendar-month-header .quick-settings .pager-button, .quick-settings .message-notification-group .message-collapse-button, .message-notification-group .quick-settings .message-collapse-button, .quick-settings .message .message-header .message-expand-button, .message .message-header .quick-settings .message-expand-button, .quick-settings .message .message-header .message-close-button, .message .message-header .quick-settings .message-close-button, .quick-settings .screenshot-ui-show-pointer-button, .quick-settings .button {
         background-color: rgba(50, 50, 50, 0.8);
         box-shadow: unset rgba(150, 150, 150, 0.4);
         padding: 10px; }
-/*Esto es para cambiar el color, el tamaño de los iconos de los sliders*/
+
     .quick-slider .icon-button, .quick-slider .login-dialog-button.cancel-button, .quick-slider .login-dialog-button.switch-user-button, .quick-slider .login-dialog-button.login-dialog-session-list-button, .quick-slider .calendar .calendar-month-header .pager-button, .calendar .calendar-month-header .quick-slider .pager-button, .quick-slider .message-notification-group .message-collapse-button, .message-notification-group .quick-slider .message-collapse-button, .quick-slider .message .message-header .message-expand-button, .message .message-header .quick-slider .message-expand-button, .quick-slider .message .message-header .message-close-button, .message .message-header .quick-slider .message-close-button, .quick-slider .screenshot-ui-show-pointer-button {
         background-color: rgb(180, 180, 180);
         box-shadow: 0px 0px 10px 5px  rgba(255, 255, 255, 0.4);
