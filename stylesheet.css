@@ -1,0 +1,109 @@
+/*Color de fondo de los quick settings*/
+.quick-settings {
+    background-color: rgba(69, 69, 69, 0.6); /*color de fondo*/
+    backdrop-filter: blur(10px);/*Pues xd no hacer nada*/
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px; /*Redondes de la forma del menu*/
+    box-shadow: 0px 0px 18px 2px rgba(150, 150, 150, 0.4); /*Color de la sombre de fondo*/
+    transition: background-color 0.3s ease; /*Deberia de hacer algo*/
+}
+/*Color de fondo, tamaño y separecion de los botoner y toggles*/
+    .quick-settings .icon-button, .quick-settings .login-dialog-button.cancel-button, .quick-settings .login-dialog-button.switch-user-button, .quick-settings .login-dialog-button.login-dialog-session-list-button, .quick-settings .calendar .calendar-month-header .pager-button, .calendar .calendar-month-header .quick-settings .pager-button, .quick-settings .message-notification-group .message-collapse-button, .message-notification-group .quick-settings .message-collapse-button, .quick-settings .message .message-header .message-expand-button, .message .message-header .quick-settings .message-expand-button, .quick-settings .message .message-header .message-close-button, .message .message-header .quick-settings .message-close-button, .quick-settings .screenshot-ui-show-pointer-button, .quick-settings .button {
+        background-color: rgba(50, 50, 50, 0.8);
+        box-shadow: unset rgba(150, 150, 150, 0.4);
+        padding: 10px; }
+/*Esto es para cambiar el color, el tamaño de los iconos de los sliders*/
+    .quick-slider .icon-button, .quick-slider .login-dialog-button.cancel-button, .quick-slider .login-dialog-button.switch-user-button, .quick-slider .login-dialog-button.login-dialog-session-list-button, .quick-slider .calendar .calendar-month-header .pager-button, .calendar .calendar-month-header .quick-slider .pager-button, .quick-slider .message-notification-group .message-collapse-button, .message-notification-group .quick-slider .message-collapse-button, .quick-slider .message .message-header .message-expand-button, .message .message-header .quick-slider .message-expand-button, .quick-slider .message .message-header .message-close-button, .message .message-header .quick-slider .message-close-button, .quick-slider .screenshot-ui-show-pointer-button {
+        background-color: rgb(180, 180, 180);
+        box-shadow: 0px 0px 10px 5px  rgba(255, 255, 255, 0.4);
+        padding: 15px; }
+
+/* Top Bar */
+#panel {
+    background-color: rgba(50, 50, 50, 0.9);
+    font-weight: bold;
+    box-shadow: 0px 0px 15px 2px rgba(211, 211, 211, 0.3);
+    height: 2em;
+    transition-duration: 250ms; }
+    #panel .panel-button {
+      transition-duration: 150ms;
+      border: 1px solid transparent;
+      background-color: transparent;
+      border-radius: 999px;
+      font-weight: bold;
+      color: #ffffff;
+      box-shadow: 0 0 0 1px transparent;
+      -natural-hpadding: 12px;
+      -minimum-hpadding: 6px; }
+    #panel .panel-button:focus, #panel .panel-button:hover {
+        box-shadow: unset 0px 0px 15px 1px rgba(255, 255, 255, 0.3); }
+    #panel .panel-button:active, #panel .panel-button:checked {
+        box-shadow: unset 0 0 15px 10px rgba(255, 255, 255, 0.9);
+        font-weight: bold;
+        color: #000; }
+      
+    #panel .panel-button.clock-display {
+        transition-duration: 150ms;
+        border: 3px solid transparent;
+        background-color: transparent;
+        border-radius: 999px;
+        font-weight: bold;
+        color: #ffffff;
+        box-shadow: 0 0 0 1px transparent;
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important; }
+    #panel .panel-button.clock-display .clock {
+        transition-duration: 150ms;
+        border: 3px solid transparent;
+        border-radius: 999px; }
+    #panel .panel-button.clock-display:focus .clock, #panel .panel-button.clock-display:hover .clock {
+        box-shadow: unset 0 0 15px 1px rgba(255, 255, 255, 0.3); }
+    #panel .panel-button.clock-display:active .clock, #panel .panel-button.clock-display:checked .clock {
+        box-shadow: unset 0 0 15px 10px rgba(255, 255, 255, 0.9);
+        font-weight: bold;
+        color: #000; }
+
+
+
+    #panel:overview, #panel.unlock-screen, #panel.login-screen {
+        background-color: transparent; }
+    #panel:overview .panel-button {
+        transition-duration: 150ms;
+        border: 3px solid transparent;
+        background-color: transparent;
+        border-radius: 999px;
+        font-weight: bold;
+        color: #fafafb;
+        box-shadow: inset 0 0 0 100px transparent; }
+    #panel:overview .panel-button:focus, #panel:overview .panel-button:hover {
+        box-shadow: unset 0 0 15px 1px rgba(250, 250, 251, 0.3); }
+    #panel:overview .panel-button:active, #panel:overview .panel-button:checked {
+        box-shadow: unset 0 0 15px 10px rgba(250, 250, 251, 0.9);
+        font-weight: bold;
+        color: #000; }
+        
+    #panel:overview .panel-button.clock-display {
+        transition-duration: 150ms;
+        border: 3px solid transparent;
+        background-color: transparent;
+        border-radius: 999px;
+        font-weight: bold;
+        color: #fafafb;
+        box-shadow: inset 0 0 0 100px transparent;
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important; }
+    #panel:overview .panel-button.clock-display .clock {
+        transition-duration: 150ms;
+        border: 3px solid transparent;
+        border-radius: 999px; }
+    #panel:overview .panel-button.clock-display:focus .clock, #panel:overview .panel-button.clock-display:hover .clock {
+        box-shadow: unset 0 0 15px 1px rgba(250, 250, 251, 0.3); }
+    #panel:overview .panel-button.clock-display:active .clock, #panel:overview .panel-button.clock-display:checked .clock {
+        box-shadow: unset 0 0 15px 10px rgba(250, 250, 251, 0.9);
+        font-weight: bold;
+        color: #000; }
+ 
+
+  
