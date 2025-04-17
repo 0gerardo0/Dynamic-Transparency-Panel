@@ -2,10 +2,8 @@
 /* Top Bar */
 #panel {
     background-color: rgba(50, 50, 50, 0.9);
-    font-weight: bold;
     box-shadow: 0px 0px 15px 2px rgba(211, 211, 211, 0.3);
-    height: 2em;
-    transition-duration: 250ms; }
+    height: 2em; }
     #panel .panel-button {
         border-radius: 999px;
         font-weight: bold;

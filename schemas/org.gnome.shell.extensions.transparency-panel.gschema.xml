@@ -1,0 +1,13 @@
+<schemalist>
+  <schema id="org.gnome.shell.extensions.transparency-panel" path="/org/gnome/shell/extensions/transparency-panel/">
+    
+    
+    <key name="panel-opacity" type="i">
+      <default>90</default>
+      <summary>Opacity of the top bar (0-100)</summary>
+      <description>Controls the RGBA alpha for the top bar background.</description>
+    </key>
+
+    
+  </schema>
+</schemalist>
