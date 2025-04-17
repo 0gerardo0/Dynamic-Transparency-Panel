@@ -12,12 +12,12 @@ export default class PanelSettingsPrefs extends ExtensionPreferences {
             title: _('Appearence'),
         });
         
-        const group = new Adw.PrefecencesGroup({
+        const group = new Adw.PreferencesGroup({
           title: _('Top Bar Style'),
         });
 
         const panelOpacity = new Gtk.Scale({
-          orientation: Gtk.Orientation.Horizontal,
+          orientation: Gtk.Orientation.HORIZONTAL,
           adjustment: new Gtk.Adjustment({
             lower: 0,
             upper: 100,
@@ -25,12 +25,12 @@ export default class PanelSettingsPrefs extends ExtensionPreferences {
           }),
           digits: 0,
           draw_value: true,
-          value: settings.get_int('panel-opacity'),
         });
+        panelOpacity.set_value(settings.get_int('panel-opacity'));
         panelOpacity.connect('value-changed', () => {
           settings.set_int('panel-opacity', panelOpacity.get_value());
         });
-        group.add(buildRow(_('Top Bar Opacity'), panelOpacity));
+        group.add(buildRow(_('Panel Opaciity'), panelOpacity));
 
         page.add(group);
         window.add(page);
