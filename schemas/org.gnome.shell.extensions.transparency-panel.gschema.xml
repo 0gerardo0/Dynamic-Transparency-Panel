@@ -8,6 +8,11 @@
       <description>Controls the RGBA alpha for the top bar background.</description>
     </key>
 
-    
+    <key name="use-custom-style" type="b">
+      <default>false</default>
+      <summary>Enable dynamic overrides</summary>
+      <description>Si es true, aplicará estilos desde GSettings.</description>
+    </key>
+
   </schema>
 </schemalist>
