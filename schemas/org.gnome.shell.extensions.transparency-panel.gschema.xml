@@ -1,11 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+  <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
   <schema id="org.gnome.shell.extensions.transparency-panel" path="/org/gnome/shell/extensions/transparency-panel/">
     
     <key name="panel-opacity" type="i">
-      <default>90</default>
+      <default>10</default>
       <summary>Opacity of the top bar (0-100)</summary>
       <description>Controls the RGBA alpha for the top bar background.</description>
+    </key>
+
+    <key name="overview-opacity" type="i">
+      <default>85</default>
+      <summary>Overview Mode Opacity</summary>
+      <description>Opacity when in Overview mode (0-100)</description>
     </key>
 
     <key name="use-custom-style" type="b">
@@ -13,15 +19,6 @@
       <summary>Enable dynamic overrides</summary>
       <description>If true, applies styles from GSettings.</description>
     </key>
-
-    <!-- Para futuras implementaciones -->
-    <!--
-    <key name="panel-color" type="s">
-      <default>'rgba(50, 50, 50, 1.0)'</default>
-      <summary>Color of the top bar</summary>
-      <description>Controls the RGBA color for the top bar background.</description>
-    </key>
-    -->
-
+    
   </schema>
 </schemalist>
