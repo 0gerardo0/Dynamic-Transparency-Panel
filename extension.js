@@ -13,58 +13,44 @@ export default class TransparencyExtension extends Extension {
         this._overviewShowingId = null;
         this._overviewHidingId = null;
         this._panelStyleOriginal = null;
+        this._overviewStyleApplied = false;
     }
 
     enable() {
         this._settings = this.getSettings('org.gnome.shell.extensions.transparency-panel');
-        
-        // Conectar la señal de cambio de configuraciones
         this._settingsChangedId = this._settings.connect('changed', this._onSettingsChanged.bind(this));
-        
-        // Conectar señales para detectar cambios en el Overview
         this._overviewShowingId = Main.overview.connect('showing', this._onOverviewShowing.bind(this));
         this._overviewHidingId = Main.overview.connect('hiding', this._onOverviewHiding.bind(this));
         
-        // Aplicar estilos iniciales
         this._applyStyles();
     }
 
     disable() {
-        // Desconectar la señal de cambio de configuraciones
         if (this._settingsChangedId) {
             this._settings.disconnect(this._settingsChangedId);
             this._settingsChangedId = null;
         }
-        
-        // Desconectar señales del Overview
         if (this._overviewShowingId) {
             Main.overview.disconnect(this._overviewShowingId);
             this._overviewShowingId = null;
         }
-        
         if (this._overviewHidingId) {
             Main.overview.disconnect(this._overviewHidingId);
             this._overviewHidingId = null;
         }
-        
-        // Eliminar cualquier timeout pendiente
         if (this._styleChangedTimeoutId) {
             GLib.source_remove(this._styleChangedTimeoutId);
             this._styleChangedTimeoutId = null;
         }
         
-        // Eliminar estilos personalizados
         this._removeCustomStyles();
-        
         this._settings = null;
     }
 
     _onSettingsChanged(settings, key) {
-        // Evitar múltiples actualizaciones rápidas estableciendo un pequeño timeout
         if (this._styleChangedTimeoutId) {
             GLib.source_remove(this._styleChangedTimeoutId);
         }
-        
         this._styleChangedTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 300, () => {
             this._applyStyles();
             this._styleChangedTimeoutId = null;
@@ -73,47 +59,45 @@ export default class TransparencyExtension extends Extension {
     }
 
     _onOverviewShowing() {
-        // Guardar el estilo actual para restaurarlo después
         this._panelStyleOriginal = Main.panel.style;
+        this._applyOverviewStyles();
     }
-
     _onOverviewHiding() {
-        // Reaplica los estilos cuando se sale del Overview
-        GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
+        GLib.timeout_add(GLib.PRIORITY_DEFAULT, 300, () => {
+            this._removeOverviewStyles();
             this._applyStyles();
             return GLib.SOURCE_REMOVE;
         });
     }
 
+    _applyOverviewStyles() {
+        if (this._overviewStyleApplied) 
+          return;
+        const opacity = this._settings.get_int('overview-opacity') / 100;
+        Main.panel.style = `background-color: rgba(50, 50, 50, ${opacity});`;
+        Main.panel.add_style_class_name('CSSstylePanel-overview');
+        this._overviewStyleApplied = true;
+    }
+
+    _removeOverviewStyles() {
+        Main.panel.style = null;
+        Main.panel.remove_style_class_name('CSSstylePanel-overview');
+        this._overviewStyleApplied = false;
+    }
+
     _applyStyles() {
-        // Aplicar clase CSS para estilos estáticos
         Main.panel.add_style_class_name('CSSstylePanel');
-        
         const addStyleClass = Main.panel.statusArea.quickSettings;
         if (addStyleClass) {
             addStyleClass.menu.actor.add_style_class_name('CSSstylePanel-qs');
         }
-        
-        // No aplicar opacidad personalizada si estamos en el Overview
-        if (Main.overview.visible) {
+        if (Main.overview.visible || this._overviewStyleApplied) {
             return;
         }
-        
-        // Obtener valor de opacidad del panel de configuración (0-100)
-        const panelOpacity = this._settings.get_int('panel-opacity');
-        
-        // Convertir a formato CSS (0-1)
-        const opacityValue = panelOpacity / 100;
-        
-        // Crear un estilo CSS dinámico para el panel
-        const panelStyle = `background-color: rgba(50, 50, 50, ${opacityValue});`;
-        
-        // Aplicar el estilo directamente
+        const panelOpacity = this._settings.get_int('panel-opacity') / 100;
+        const panelStyle = `background-color: rgba(50, 50, 50, ${panelOpacity});`;
         Main.panel.style = panelStyle;
-        
-        // Configurar un timeout para asegurar que el estilo se mantiene
-        // Esto ayuda a evitar que GNOME Shell sobreescriba nuestro estilo
-        GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
+        GLib.timeout_add(GLib.PRIORITY_DEFAULT, 300, () => {
             if (!Main.overview.visible && Main.panel.style !== panelStyle) {
                 Main.panel.style = panelStyle;
             }
@@ -123,13 +107,10 @@ export default class TransparencyExtension extends Extension {
 
     _removeCustomStyles() {
         Main.panel.remove_style_class_name('CSSstylePanel');
-        
         const addStyleClass = Main.panel.statusArea.quickSettings;
         if (addStyleClass) {
             addStyleClass.menu.actor.remove_style_class_name('CSSstylePanel-qs');
         }
-        
-        // Eliminar estilos dinámicos
         Main.panel.style = null;
     }
 }
