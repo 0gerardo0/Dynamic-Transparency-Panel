@@ -11,6 +11,16 @@
     color: #ffffff; 
 }
 
+/* Estilos específicos para overview */
+#panel.CSSstylePanel-overview {
+    background-color: rgba(211, 211, 211, 0.1) !important; /* Valor por defecto */
+    transition: background-color 0.3s ease-in-out;
+}
+
+#panel.CSSstylePanel-overview .panel-button {
+    color: #fafafb !important;
+}
+
 #panel.CSSstylePanel .panel-button:focus, 
 #panel.CSSstylePanel .panel-button:hover {
     box-shadow: unset 0px 0px 15px 1px rgba(255, 255, 255, 0.3); 
