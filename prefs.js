@@ -17,7 +17,6 @@ export default class PanelSettingsPrefs extends ExtensionPreferences {
             description: _('Configure the appearance of the top bar')
         });
 
-        // Panel Opacity slider
         const panelOpacity = new Gtk.Scale({
             orientation: Gtk.Orientation.HORIZONTAL,
             adjustment: new Gtk.Adjustment({
@@ -38,25 +37,25 @@ export default class PanelSettingsPrefs extends ExtensionPreferences {
         
         group.add(buildRow(_('Panel Opacity'), panelOpacity));
 
-        // Añadir más configuraciones aquí en el futuro
-        // Por ejemplo, para un selector de color:
-        /*
-        const colorButton = new Gtk.ColorButton();
-        
-        // Convertir string de color a objeto GdkRGBA
-        const colorString = settings.get_string('panel-color');
-        const rgba = new Gdk.RGBA();
-        rgba.parse(colorString);
-        colorButton.set_rgba(rgba);
-        
-        colorButton.connect('color-set', () => {
-            const color = colorButton.get_rgba().to_string();
-            settings.set_string('panel-color', color);
+        const overviewOpacity = new Gtk.Scale({
+            orientation: Gtk.Orientation.HORIZONTAL,
+            adjustment: new Gtk.Adjustment({
+                lower: 0,
+                upper: 100,
+                step_increment: 1,
+            }),
+            digits: 0,
+            draw_value: true,
+            value_pos: Gtk.PositionType.RIGHT,
+            hexpand: true,
         });
-        
-        group.add(buildRow(_('Panel Color'), colorButton));
-        */
 
+        overviewOpacity.set_value(settings.get_int('overview-opacity'));
+        overviewOpacity.connect('value-changed', () => {
+            settings.set_int('overview-opacity', overviewOpacity.get_value());
+        });
+
+        group.add(buildRow(_('Overview Opacity'), overviewOpacity));
         page.add(group);
         window.add(page);
     }
