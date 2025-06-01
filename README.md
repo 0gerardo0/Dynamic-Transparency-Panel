@@ -7,14 +7,14 @@
 
 ---
 
-## 📌 Descripción
+## Descripción
 
 Esta extensión:
 - Aplica estilos CSS personalizados al **panel superior** (top bar) y al menú de Quick Settings.
 - Permite al usuario modificar “en tiempo real” la **opacidad** del panel normal y la **opacidad** del panel en **Overview**, mediante sliders en la ventana de preferencias.
 ---
 
-## 🎯 Características
+## Características
 
 1. **Transparencia Dinámica (Panel Normal)**  
    - Un slider en las Preferencias que controla la opacidad del panel superior cuando estás en cualquier aplicación (modo “normal”).  
@@ -31,7 +31,7 @@ Esta extensión:
 
 ---
 
-## 🚀 Instalación
+## Instalación
 
 1. **Clonar el repositorio** 
    ```bash
