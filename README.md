@@ -41,28 +41,24 @@ Esta extensión:
 ## Roadmap / Funcionalidades Futuras
 
 Selector de color (Panel Color)
-    - Permitir al usuario escoger un color de fondo distinto a rgba(50,50,50,…).
-    - Agregar en el schema la clave panel-color (s) y un Gtk.ColorButton en prefs.js.
+   - Permitir al usuario escoger un color de fondo distinto a rgba(50,50,50,…).
+   - Agregar en el schema la clave panel-color (s) y un Gtk.ColorButton en prefs.js.
 
 Control de sombra (Box Shadow)
-    - Exponer claves panel-shadow-color (s) y panel-shadow-opacity (d) para ajustar la sombra del panel.
-    - Inyectar dinámicamente el CSS correspondiente.
+   - Exponer claves panel-shadow-color (s) y panel-shadow-opacity (d) para ajustar la sombra del panel.
+   - Inyectar dinámicamente el CSS correspondiente.
+
 Soporte para más componentes
-    - Transparencia en las ventanas de notificación, quicksettings-popup, popup-menus, etc., con sliders adicionales.
-    - Posibilidad de habilitar “blur” (difuminado) si se integra con módulos como KWin blur (en Wayland).
+   - Transparencia en las ventanas de notificación, quicksettings-popup, popup-menus, etc., con sliders adicionales.
 
 ---
 
 ## Contribuciones
 
 ¡Las contribuciones son bienvenidas! Si encuentras un bug o tienes una sugerencia, por favor:
-
-    Abre un “Issue” describiendo tu propuesta o problema.
-
-    Crea un “Pull Request” señalando claramente qué cambios introduces.
-
-    Sigue el estilo de código (GJS / JavaScript) y respeta los nombres de clase y convenciones actuales.
-
+   - Abre un “Issue” describiendo tu propuesta o problema.
+   - Crea un “Pull Request” señalando claramente qué cambios introduces.
+   - Sigue el estilo de código (GJS / JavaScript) y respeta los nombres de clase y convenciones actuales.
 Antes de proponer una nueva funcionalidad, abre primero un Issue para discutir su factibilidad.
 
 ## Licencia
