@@ -1,5 +1,7 @@
 # Esquemas compilados (se regeneran localmente)
 schemas/gschemas.compiled
+./gnome-shell-dark
+./stylesheet-original
 
 # Archivos de configuración de editor
 *.swp
